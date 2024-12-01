@@ -1,14 +1,12 @@
-import React from 'react';
+import React from "react";
 
-const ProductCard = ({ productName, productImage, productPrice, availabilityStatus }) => {
+const ProductCard = ({ name, image, price, availability }) => {
   return (
-    <div className="product-card">
-      <img src={productImage} alt={productName} className="product-image" />
-      <h3 className="product-name">{productName}</h3>
-      <p className="product-price">${productPrice}</p>
-      <p className={`product-availability ${availabilityStatus ? 'in-stock' : 'out-of-stock'}`}>
-        {availabilityStatus ? 'In Stock' : 'Out of Stock'}
-      </p>
+    <div className="product-card" style={{ border: "1px solid #ddd", borderRadius: "8px", padding: "16px", width: "250px", textAlign: "center" }}>
+      <img src={image} alt={name} style={{ width: "100%", height: "auto", borderRadius: "8px" }} />
+      <h3 style={{ fontSize: "1.2rem", margin: "10px 0" }}>{name}</h3>
+      <p style={{ fontSize: "1rem", fontWeight: "bold" }}>${price}</p>
+      <p style={{ color: availability === "In Stock" ? "green" : "red" }}>{availability}</p>
     </div>
   );
 };
